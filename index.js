@@ -28,10 +28,9 @@ let items = [
 const db = new pg.Pool({
   connectionString: process.env.DBConfigLink,
   ssl: {
-    rejectUnauthorized: true,
+    rejectUnauthorized: false,
   },
 });
-
 db.connect();
 
 async function getTitles() {

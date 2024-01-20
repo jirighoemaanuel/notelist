@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import { Pool } from 'pg';
+import pg from 'pg';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -25,10 +25,10 @@ let items = [
 //   port: 5432,
 // });
 
-const db = new Pool({
+const db = new pg.Pool({
   connectionString: process.env.DBConfigLink,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 });
 
